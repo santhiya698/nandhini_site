@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>13 Years of Love — Our Story</title>
+<style>
+:root{--maroon:#6b1230;--rose:#e8758f;--cream:#fff6e8;--gold:#c9a24b;--lav:#e6dcf3;--brown:#3b2418}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--brown);font-family:Georgia,serif;line-height:1.6}
+h1,h2,h3,.hand{font-family:"Segoe Script","Brush Script MT",cursive;color:var(--maroon);font-weight:normal}
+h2{font-size:clamp(1.8rem,5vw,3rem);margin:.2em 0}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(107,18,48,.95);display:flex;align-items:center;justify-content:space-between;padding:.5rem 1rem}
+nav b{color:var(--gold)}nav ul{list-style:none;display:flex;gap:1rem;margin:0;padding:0}
+nav a{color:var(--cream);text-decoration:none;font-size:.85rem}nav a:hover{color:var(--gold)}
+#burger{display:none;background:none;border:0;color:var(--cream);font-size:1.6rem;cursor:pointer}
+#music{background:var(--gold);border:0;border-radius:20px;padding:.3rem .7rem;cursor:pointer;margin-left:.5rem}
+@media(max-width:900px){#burger{display:block}nav ul{display:none;position:absolute;top:100%;left:0;right:0;background:var(--maroon);flex-direction:column;padding:1rem}nav ul.open{display:flex}}
+section{padding:5rem 1.2rem 3rem;max-width:1000px;margin:auto;text-align:center;position:relative}
+.border{border:3px double var(--gold);border-radius:14px;padding:1.5rem;background:rgba(255,255,255,.6)}
+.reveal{opacity:0;transform:translateY(30px);transition:1s}.reveal.in{opacity:1;transform:none}
+button.main{background:var(--maroon);color:var(--cream);border:2px solid var(--gold);border-radius:30px;padding:.7rem 1.6rem;font-size:1rem;cursor:pointer;margin:.3rem;font-family:inherit}
+button.main:hover{background:var(--rose)}button.sm{background:var(--lav);border:1px solid var(--gold);border-radius:6px;cursor:pointer;margin:2px}
+.bubble{display:inline-block;background:#fff;border:2px solid var(--maroon);border-radius:18px;padding:.5rem 1rem;margin:.4rem;opacity:0;transition:opacity 1s}
+.bubble.show{opacity:1}
+.quote{font-style:italic;color:var(--maroon);font-size:1.15rem}
+.slot{border:2px dashed var(--gold);background:var(--lav);border-radius:12px;padding:1rem;min-height:140px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:.9rem}
+.hero{max-width:420px;width:100%;border-radius:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1rem;margin-top:1rem}
+.card{background:#fff;padding:.6rem;border:1px solid var(--gold);border-radius:10px;box-shadow:0 3px 10px #0002;transform:rotate(-1deg)}
+.card:nth-child(even){transform:rotate(1.2deg)}
+.card img,.card video{width:100%;height:170px;object-fit:cover;border-radius:6px;cursor:pointer}
+.card .ph{height:170px;background:var(--lav);border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.85rem}
+.cap{padding:.3rem;outline:none;min-height:2em;border-bottom:1px dashed var(--gold);font-size:.9rem}
+.big{font-size:clamp(2.5rem,9vw,5rem);color:var(--maroon);font-family:"Segoe Script",cursive}
+textarea,input[type=date]{width:100%;padding:.6rem;border:1px solid var(--gold);border-radius:8px;font:inherit;background:#fffdf8}
+.bar{height:8px;background:var(--lav);border-radius:5px;margin:1rem 0;overflow:hidden}.bar i{display:block;height:100%;background:var(--rose);width:0;transition:.4s}
+#intro{position:fixed;inset:0;z-index:100;background:radial-gradient(#8a1c42,#3a0a1b);color:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1rem;overflow:auto}
+#intro.gone{display:none}#intro h1{color:var(--gold);font-size:clamp(1.8rem,6vw,3.2rem)}
+#env{font-size:5rem;transition:transform 1s}#env.open{transform:scale(1.3) rotate(-6deg)}
+#scene{display:none}#scene.on{display:block;animation:fade 1.5s}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.fall{position:fixed;top:-30px;z-index:5;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+.pop{position:fixed;z-index:200;pointer-events:none;font-size:2rem;animation:up 2.5s forwards}
+@keyframes up{to{transform:translateY(-90vh);opacity:0}}
+#ring{font-size:4rem;cursor:pointer;transition:.6s;display:inline-block}#ring.open{transform:scale(1.4)}
+#ans{text-align:left}#ans li{margin:.6rem 0}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+@media print{nav,#intro,.noprint,section:not(#answers){display:none!important}#answers{display:block!important}}
+#hero .hero,#introImg .hero{background:#fff;padding:8px;border:3px double var(--gold);box-shadow:0 6px 20px #0004}#family .hero{filter:drop-shadow(0 8px 14px #0003)}
+#lb{position:fixed;inset:0;z-index:300;background:rgba(40,8,20,.92);display:none;align-items:center;justify-content:center;flex-direction:column;padding:1rem}
+#lb.on{display:flex;animation:fade .3s}
+#lbimg{max-width:94vw;max-height:76vh;object-fit:contain;border:6px solid #fff;border-radius:10px;box-shadow:0 0 40px #c9a24b88}
+#lbcap{color:var(--cream);margin:.8rem;text-align:center;font-family:"Segoe Script",cursive;font-size:1.2rem;max-width:90vw}
+#lb button{position:absolute;background:var(--gold);border:0;border-radius:50%;width:46px;height:46px;font-size:1.4rem;cursor:pointer;color:var(--maroon)}
+#lbx{top:14px;right:14px}#lbp{left:12px;top:50%}#lbn{right:12px;top:50%}
+.fh{position:fixed;bottom:-50px;z-index:4;pointer-events:none;width:var(--z);height:var(--z);animation:rise var(--d) linear forwards,sway var(--w) ease-in-out infinite alternate;filter:drop-shadow(0 0 8px var(--g))}
+.fh svg{width:100%;height:100%;animation:beat 1.2s ease-in-out infinite}
+@keyframes rise{0%{transform:translateY(0) rotate(-8deg);opacity:0}10%{opacity:.9}85%{opacity:.8}100%{transform:translateY(-115vh) rotate(12deg);opacity:0}}
+@keyframes sway{from{translate:-35px 0}to{translate:35px 0}}
+@keyframes beat{50%{transform:scale(1.18)}}
+.bh{position:fixed;z-index:400;pointer-events:none;font-size:20px;animation:burst 1.1s ease-out forwards}
+@keyframes burst{to{transform:translate(var(--dx),var(--dy)) scale(.4) rotate(40deg);opacity:0}}
+</style></head><body>
+
+<div id="intro" role="dialog" aria-label="Intro">
+ <button class="main noprint" id="skip" style="position:absolute;top:10px;right:10px">Skip intro ›</button>
+ <div id="env" aria-hidden="true">💌</div>
+ <h1 id="introTitle" style="opacity:0">Neither Wanted This Marriage…</h1>
+ <div id="introImg"></div>
+ <div><span class="bubble" id="b1">“Enakku marriage interest-e illa!”</span><span class="bubble" id="b2">“Enakkum indha marriage-la interest illa!”</span></div>
+ <p class="hand" id="b3" style="opacity:0;font-size:1.5rem;color:var(--gold)">But life had already started writing their story…</p>
+ <button class="main" id="start" style="display:none">Start Our Story</button>
+</div>
+
+<nav><b class="hand">13 Years ❤</b>
+ <button id="burger" aria-label="Menu" aria-expanded="false">☰</button>
+ <ul id="menu"><li><a href="#hero">Our Beginning</a></li><li><a href="#ch2">First Meeting</a></li><li><a href="#ch3">Our Love</a></li><li><a href="#ch5">13 Years</a></li><li><a href="#ch6">Our Daughter</a></li><li><a href="#memories">Memories</a></li><li><a href="#questions">Questions</a></li><li><a href="#proposal">Proposal</a></li><li><a href="#family">Our Family</a></li></ul>
+ <button id="music" aria-pressed="false" title="Music (add music.mp3 beside this file)">♪ Music</button></nav>
+
+<main id="scene">
+<section id="hero"><div class="border reveal">
+ <h1 class="big">Neither Wanted This Marriage…</h1>
+ <p>Two strangers. One arranged match. Zero interest. And a story neither of them expected.</p>
+ <div class="imgslot" data-key="img1" data-file="Sulking_South_Indian_Wedding_Couple.png" data-alt="Bride and groom with crossed arms looking in opposite directions"></div>
+ <button class="main" onclick="document.getElementById('ch1').scrollIntoView()">Discover Our Story ❤️</button></div></section>
+
+<section id="ch1"><div class="reveal"><p class="hand">Chapter 1</p><h2>A Match Neither of Us Asked For</h2>
+ <p contenteditable class="cap" data-key="t1">Both families arranged the match, while the boy and girl had no interest in getting married. (Edit this text with your own words.)</p>
+ <p class="quote">First impression? Not impressed. Marriage interest? Absolutely zero!</p></div></section>
+
+<section id="ch2"><div class="reveal"><p class="hand">Chapter 2</p><h2>You Were Not My Type</h2>
+ <span class="bubble show">🙄 “Hmm… not what I imagined.”</span><span class="bubble show">🤨 “Same here, honestly.”</span>
+ <p>❓ &nbsp;😶 &nbsp;❓ <br><small>(an awkward silence)</small></p>
+ <p contenteditable class="cap" data-key="t2">Edit: your own first-meeting story.</p></div></section>
+
+<section id="ch3"><div class="reveal"><p class="hand">Chapter 3</p><h2>Somewhere Between Arguments and Care</h2>
+ <div class="grid cards" data-key="c3" data-labels="First caring moment|First meaningful conversation|First time we understood each other|First time we missed each other|The moment we realised something had changed"></div></div></section>
+
+<section id="ch4"><div class="reveal"><p class="hand">Chapter 4</p><h2>We Fought. We Cared. We Stayed.</h2>
+ <div class="grid cards" data-key="c4" data-labels="Cute fights|Small misunderstandings|Silent moments|Unexpected care|Romantic memories|Forgiveness|Trust and understanding|Happy moments together"></div>
+ <p class="quote">Love wasn't always perfect. But through every fight, every smile, and every moment of care, we kept choosing each other.</p></div></section>
+
+<section id="ch5"><div class="border reveal"><p class="hand">Chapter 5</p><h2>13 Years. Countless Memories. One Beautiful Journey.</h2>
+ <div class="big" id="years">13 Beautiful Years</div><div class="hand" style="font-size:1.8rem">of us ❤️</div>
+ <p class="noprint">Start date (optional): <input type="date" id="sd" style="max-width:220px"></p>
+ <div class="grid cards" data-key="c5" data-labels="Important date|Anniversary memory|Special message|Favourite moment|Milestone" data-video="1"></div></div></section>
+
+<section id="ch6"><div class="reveal"><p class="hand">Chapter 6</p><h2>The Most Beautiful Gift of Our Love</h2>
+ <div style="font-size:4rem">💗 → 👶</div><div style="font-size:3rem">👨‍👩‍👧</div>
+ <p class="quote">From two people who never wanted this marriage… to two hearts blessed with the most beautiful little girl.</p>
+ <div class="grid cards" data-key="c6" data-labels="Baby's birth memory|First smile|First steps|First birthday|Family outings|Favourite family photograph"></div></div></section>
+
+<section id="ch7"><div class="reveal"><p class="hand">Chapter 7</p><h2>And Now, She's in 6th Grade!</h2><p>🦋 ⭐ ✏️ 📚 ⭐ 🦋</p>
+ <div class="grid cards" data-key="c7" data-labels="Baby days|First day of school|Childhood memories|Family celebrations|School achievements|Current 6th-grade memories"></div>
+ <p class="quote">Time flew by, our little baby grew up, and the love that started with an arranged match became a beautiful family.</p></div></section>
+
+<section id="memories"><div class="reveal"><h2>Memory Gallery</h2>
+ <p class="noprint">Add photos or videos, edit captions, delete, or reorder with ◀ ▶.</p>
+ <button class="main noprint" id="addmem">+ Add photo / video</button>
+ <input type="file" id="memfile" accept="image/*,video/*" multiple hidden>
+ <div class="grid" id="memgrid"></div></div></section>
+
+<section id="questions"><div class="border reveal"><h2>Some Questions Only Our Hearts Can Answer ❤️</h2>
+ <div class="bar" aria-hidden="true"><i id="pbar"></i></div>
+ <h3 id="qtext" style="font-family:Georgia"></h3><textarea id="qa" rows="4" aria-label="Your answer"></textarea>
+ <button class="main" id="prev">‹ Previous</button><button class="main" id="next">Next ›</button>
+ <p><small>Answers are saved only in this browser on this device — never sent anywhere.</small></p></div></section>
+
+<section id="answers" style="display:none"><div class="border"><h2>Our Answers Together</h2><ol id="ans"></ol>
+ <button class="main noprint" onclick="print()">Print / Save as PDF</button>
+ <button class="main noprint" onclick="document.getElementById('answers').style.display='none'">Close</button></div></section>
+
+<section id="proposal"><div class="reveal"><h2>After Everything We've Been Through…</h2>
+ <p>13 years of fights, care, laughter, memories, and a little angel who made our world complete.</p>
+ <div id="ring" role="button" tabindex="0" aria-label="Open ring box">💍</div>
+ <h3 style="font-family:Georgia">If life gave us another beginning, would you choose me again?</h3>
+ <button class="main yes">Yes, Always ❤️</button><button class="main yes">Of Course, Forever! 💍</button>
+ <p class="quote" id="yesmsg" style="display:none">Then let's keep writing our story, one beautiful memory at a time.</p>
+ <p class="noprint">My own words:</p><textarea rows="4" data-key="prop" placeholder="Write your proposal message…"></textarea></div></section>
+
+<section id="family" style="background:linear-gradient(#fff6e8,#f7d9a6,#f3c88c);max-width:none"><div class="reveal" style="max-width:1000px;margin:auto">
+ <div class="imgslot" data-key="img2" data-file="cutemarriage.png" data-alt="Happy South Indian bride and groom"></div>
+ <p class="quote">Once, We Were Two Strangers Who Didn't Want This Marriage…</p>
+ <p>Then came the arguments, the care, the love, the laughter, and 13 unforgettable years.</p>
+ <p>And then came our little angel, who turned our story into a beautiful family of three.</p>
+ <p>Today, our little girl is in 6th grade, and we're still creating memories together.</p>
+ <h2>An Arranged Marriage. An Unexpected Love. A Beautiful Family. Our Forever Story. ❤️</h2>
+ <p class="hand">Our real family photograph</p>
+ <div class="grid cards" data-key="fam" data-labels="Family photo (real)"></div>
+ <h3>A Letter to My Family</h3><textarea rows="6" data-key="letter" placeholder="Write your letter…"></textarea>
+ <p><button class="main" id="replay">Replay Our Love Story ↻</button></p></div></section>
+</main>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer"><button id="lbx" aria-label="Close">✕</button><button id="lbp" aria-label="Previous">‹</button><img id="lbimg" alt=""><p id="lbcap"></p><button id="lbn" aria-label="Next">›</button></div>
+<audio id="aud" src="music.mp3" loop preload="none"></audio>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const store={get(k,d){try{return JSON.parse(localStorage.getItem('lv_'+k))??d}catch(e){return d}},
+ set(k,v){try{localStorage.setItem('lv_'+k,JSON.stringify(v));return true}catch(e){alert('Browser storage is full or blocked — this item will be lost on reload. Use smaller photos.');return false}}};
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function shrink(file){return new Promise(res=>{
+ if(file.type.startsWith('video/')){ // videos are too large for local storage: session-only
+  if(file.size>2e6){res({v:1,src:URL.createObjectURL(file),temp:1});return}
+  const r=new FileReader();r.onload=()=>res({v:1,src:r.result});r.readAsDataURL(file);return}
+ if(!file.type.startsWith('image/')){alert('Please choose an image or video.');res(null);return}
+ const im=new Image();im.onload=()=>{const s=Math.min(1,900/Math.max(im.width,im.height)),c=document.createElement('canvas');
+  c.width=im.width*s;c.height=im.height*s;c.getContext('2d').drawImage(im,0,0,c.width,c.height);res({src:c.toDataURL('image/jpeg',.8)})};
+ im.onerror=()=>{alert('Could not read that image.');res(null)};im.src=URL.createObjectURL(file)})}
+function pick(accept,cb){const i=document.createElement('input');i.type='file';i.accept=accept;i.onchange=async()=>{if(i.files[0]){const r=await shrink(i.files[0]);if(r)cb(r)}};i.click()}
+function media(m,alt){return m.v?`<video src="${m.src}" controls></video>`:`<img src="${m.src}" alt="${alt||''}">`}
+
+/* intro */
+let timers=[];
+function intro(){$('#intro').classList.remove('gone');$('#scene').classList.remove('on');
+ ['#b1','#b2'].forEach(s=>$(s).classList.remove('show'));$('#b3').style.opacity=0;$('#start').style.display='none';$('#introTitle').style.opacity=0;$('#env').classList.remove('open');
+ const t=(f,ms)=>timers.push(setTimeout(f,ms));
+ t(()=>$('#env').classList.add('open'),600);t(()=>{$('#introTitle').style.opacity=1;petals(14)},1600);
+ t(()=>$('#b1').classList.add('show'),3000);t(()=>$('#b2').classList.add('show'),4500);
+ t(()=>$('#b3').style.opacity=1,6200);t(()=>$('#start').style.display='',7000)}
+function enter(){timers.forEach(clearTimeout);$('#intro').classList.add('gone');$('#scene').classList.add('on');scrollTo(0,0);startMusicIfOn()}
+$('#skip').onclick=enter;$('#start').onclick=enter;
+$('#replay').onclick=()=>{scrollTo(0,0);intro()};
+
+/* falling petals / hearts */
+function petals(n,set=['🌸','🌺','🤍','❤️','✨']){if(reduce)return;
+ for(let i=0;i<n;i++){const e=document.createElement('span');e.className='fall';e.textContent=set[i%set.length];
+  e.style.left=Math.random()*100+'vw';e.style.fontSize=14+Math.random()*16+'px';e.style.animationDuration=7+Math.random()*7+'s';e.style.animationDelay=Math.random()*3+'s';
+  document.body.appendChild(e);setTimeout(()=>e.remove(),17000)}}
+setInterval(()=>{if(!document.hidden&&$('#scene').classList.contains('on'))petals(2)},5000);
+function hearts(){if(reduce)return;for(let i=0;i<20;i++){const e=document.createElement('span');e.className='pop';e.textContent=['❤️','💖','✨','🌸'][i%4];
+ e.style.left=Math.random()*95+'vw';e.style.bottom='-30px';e.style.animationDelay=Math.random()*1.2+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),4500)}}
+
+/* nav, reveal */
+$('#burger').onclick=()=>{const o=$('#menu').classList.toggle('open');$('#burger').setAttribute('aria-expanded',o)};
+$$('#menu a').forEach(a=>a.onclick=()=>$('#menu').classList.remove('open'));
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.15});
+$$('.reveal').forEach(e=>io.observe(e));
+
+/* music (needs your own music.mp3) */
+let musicOn=false;
+function startMusicIfOn(){if(musicOn)$('#aud').play().catch(()=>{})}
+$('#music').onclick=()=>{const a=$('#aud');
+ if(musicOn){a.pause();musicOn=false}else{a.play().then(()=>musicOn=true).catch(()=>alert('Add a file named music.mp3 beside index.html to enable music.'))}
+ $('#music').setAttribute('aria-pressed',musicOn);$('#music').textContent=musicOn?'⏸ Music':'♪ Music'};
+
+/* editable text */
+$$('[contenteditable][data-key]').forEach(el=>{const k='t_'+el.dataset.key,v=store.get(k);if(v)el.textContent=v;el.oninput=()=>store.set(k,el.textContent)});
+$$('textarea[data-key]').forEach(el=>{const k='ta_'+el.dataset.key;el.value=store.get(k,'');el.oninput=()=>store.set(k,el.value)});
+
+/* two main illustrations */
+$$('.imgslot').forEach(box=>{const k='img_'+box.dataset.key,saved=store.get(k);
+ const show=src=>{box.innerHTML=`<img class="hero" src="${src}" alt="${box.dataset.alt}">`};
+ if(saved)return show(saved.src);
+ const im=new Image();im.className='hero';im.alt=box.dataset.alt;im.src=encodeURI(box.dataset.file);
+ im.onload=()=>{box.innerHTML='';box.appendChild(im)};
+ im.onerror=()=>{box.innerHTML=`<div class="slot noprint" style="max-width:420px;margin:auto">Place <b>${box.dataset.file}</b><br>beside index.html, or<br><button class="main">Choose image</button></div>`;
+  box.querySelector('button').onclick=()=>pick('image/*',r=>{store.set(k,r);show(r.src)})}});
+(()=>{const s=store.get('img_img1');if(s)$('#introImg').innerHTML=`<img class="hero" style="max-height:35vh;width:auto" src="${s.src}" alt="">`;
+ else{const im=new Image();im.className='hero';im.style.maxHeight='35vh';im.style.width='auto';im.src=encodeURI('Sulking_South_Indian_Wedding_Couple.png');im.onload=()=>$('#introImg').appendChild(im)}})();
+
+/* photo cards */
+$$('.cards').forEach(g=>{const k='cards_'+g.dataset.key,labels=g.dataset.labels.split('|');let d=store.get(k,{});
+ const vid=g.dataset.video?'image/*,video/*':'image/*';
+ labels.forEach((l,i)=>{const c=document.createElement('div');c.className='card';
+  const draw=()=>{const x=d[i]||{};c.innerHTML=`<div class="slotwrap">${x.m?media(x.m,l):'<div class="ph" tabindex="0" role="button">📷 Add photo</div>'}</div><div class="cap" contenteditable aria-label="Caption"></div><small>${l}</small>${x.m?'<br><button class="sm">Replace</button><button class="sm del">Remove</button>':''}`;
+   const cap=c.querySelector('.cap');cap.textContent=x.c||'';cap.oninput=()=>{d[i]=d[i]||{};d[i].c=cap.textContent;store.set(k,d)};
+   const up=()=>pick(vid,r=>{d[i]=d[i]||{};d[i].m=r;if(!r.temp)store.set(k,d);else alert('That video is large, so it is shown only until you reload.');draw()});
+   const p=c.querySelector('.ph')||c.querySelector('.sm');(c.querySelector('.ph')||{}).onclick=up;if(c.querySelector('.ph'))c.querySelector('.ph').onkeydown=e=>e.key==='Enter'&&up();
+   if(c.querySelector('.sm'))c.querySelector('.sm').onclick=up;const dl=c.querySelector('.del');if(dl)dl.onclick=()=>{delete d[i].m;store.set(k,d);draw()}};
+  draw();g.appendChild(c)})});
+
+/* memory gallery */
+let mem=store.get('mem',[]);const chapters=['Chapter 1','Chapter 2','Chapter 3','Chapter 4','Chapter 5','Chapter 6','Chapter 7','Family'];
+function saveMem(){store.set('mem',mem.filter(m=>!m.m.temp))}
+function drawMem(){const g=$('#memgrid');g.innerHTML='';mem.forEach((m,i)=>{const c=document.createElement('div');c.className='card';
+ c.innerHTML=`${media(m.m)}<div class="cap" contenteditable></div><input type="date" value="${m.date||''}" aria-label="Date"><select aria-label="Chapter">${chapters.map(h=>`<option${h===m.ch?' selected':''}>${h}</option>`).join('')}</select><br><button class="sm l">◀</button><button class="sm r">▶</button><button class="sm d">Delete</button>`;
+ const cap=c.querySelector('.cap');cap.textContent=m.c||'';cap.oninput=()=>{m.c=cap.textContent;saveMem()};
+ c.querySelector('input').onchange=e=>{m.date=e.target.value;saveMem()};c.querySelector('select').onchange=e=>{m.ch=e.target.value;saveMem()};
+ c.querySelector('.l').onclick=()=>{if(i>0){[mem[i-1],mem[i]]=[mem[i],mem[i-1]];saveMem();drawMem()}};
+ c.querySelector('.r').onclick=()=>{if(i<mem.length-1){[mem[i+1],mem[i]]=[mem[i],mem[i+1]];saveMem();drawMem()}};
+ c.querySelector('.d').onclick=()=>{if(confirm('Delete this memory?')){mem.splice(i,1);saveMem();drawMem()}};g.appendChild(c)})}
+$('#addmem').onclick=()=>$('#memfile').click();
+$('#memfile').onchange=async e=>{for(const f of e.target.files){const r=await shrink(f);if(r)mem.push({m:r,c:'',date:'',ch:chapters[3]})}saveMem();drawMem();e.target.value=''};
+drawMem();
+
+/* years */
+const sd=$('#sd');sd.value=store.get('start','');
+function years(){const v=sd.value;if(!v){$('#years').textContent='13 Beautiful Years';return}
+ const s=new Date(v),n=new Date();let y=n.getFullYear()-s.getFullYear(),m=n.getMonth()-s.getMonth();if(m<0||(m===0&&n.getDate()<s.getDate())){y--;m+=12}
+ if(n<s)return $('#years').textContent='Start date is in the future';$('#years').textContent=`${y} Years${m?', '+m+' Months':''}`}
+sd.onchange=()=>{store.set('start',sd.value);years()};years();
+
+/* questions */
+const Q=["Did you ever imagine our arranged marriage would become this beautiful?","When did you first notice that I genuinely cared for you?","Which memory of us makes you smile the most?","What was our cutest fight?","What is one thing you will never forget about our journey?","If you could relive one moment with me, which moment would it be?","What makes our little family special?","After all these years, would you choose me again?"];
+let qi=0,A=store.get('answers',Array(8).fill(''));
+function showQ(){$('#qtext').textContent=`${qi+1}. ${Q[qi]}`;$('#qa').value=A[qi];$('#pbar').style.width=(qi+1)/Q.length*100+'%';
+ $('#prev').disabled=qi===0;$('#next').textContent=qi===Q.length-1?'Finish ❤️':'Next ›'}
+$('#qa').oninput=()=>{A[qi]=$('#qa').value;store.set('answers',A)};
+$('#prev').onclick=()=>{qi--;showQ()};
+$('#next').onclick=()=>{if(qi<Q.length-1){qi++;showQ()}else{$('#ans').innerHTML=Q.map((q,i)=>`<li><b>${q}</b><br>${(A[i]||'<i>(not answered)</i>').replace(/[<>&]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;'}[c])).replace(/\n/g,'<br>')}</li>`).join('');
+ $('#answers').style.display='block';$('#answers').scrollIntoView()}};
+showQ();
+
+/* proposal */
+const ring=$('#ring');const toggleRing=()=>{ring.classList.toggle('open');ring.textContent=ring.classList.contains('open')?'💎':'💍'};
+ring.onclick=toggleRing;ring.onkeydown=e=>(e.key==='Enter'||e.key===' ')&&toggleRing();
+$$('.yes').forEach(b=>b.onclick=()=>{$('#yesmsg').style.display='block';hearts()});
+
+/* lightbox */
+let lbList=[],lbI=0;
+function lbShow(){const im=lbList[lbI],card=im.closest('.card'),cap=card.querySelector('.cap'),sm=card.querySelector('small');
+ $('#lbimg').src=im.src;$('#lbcap').textContent=(cap&&cap.textContent.trim())||(sm?sm.textContent:'');$('#lb').classList.add('on');
+ $('#lbp').style.display=$('#lbn').style.display=lbList.length>1?'':'none'}
+function lbMove(d){lbI=(lbI+d+lbList.length)%lbList.length;lbShow()}
+function lbClose(){$('#lb').classList.remove('on')}
+document.addEventListener('click',e=>{const im=e.target.closest('.card img');if(!im)return;
+ lbList=[...im.closest('.grid').querySelectorAll('.card img')];lbI=lbList.indexOf(im);lbShow();$('#lbx').focus()});
+$('#lbx').onclick=lbClose;$('#lbp').onclick=()=>lbMove(-1);$('#lbn').onclick=()=>lbMove(1);
+$('#lb').onclick=e=>{if(e.target.id==='lb')lbClose()};
+document.addEventListener('keydown',e=>{if(!$('#lb').classList.contains('on'))return;
+ if(e.key==='Escape')lbClose();if(e.key==='ArrowLeft')lbMove(-1);if(e.key==='ArrowRight')lbMove(1)});
+let tx=0;$('#lb').addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
+$('#lb').addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)lbMove(d<0?1:-1)});
+
+/* flying hearts: glowing SVG hearts rising and swaying */
+const HC=[['#e8758f','#ff9fb5'],['#c9a24b','#ffe29a'],['#b0204a','#ff7a9c'],['#d9c3f0','#f5e9ff']];
+function heartSVG(c){return `<svg viewBox="0 0 32 29"><defs><radialGradient id="g${c[0].slice(1)}" cx="35%" cy="30%"><stop offset="0" stop-color="${c[1]}"/><stop offset="1" stop-color="${c[0]}"/></radialGradient></defs><path d="M16 28C5 20 1 14 1 8.5 1 4 4.5 1 8.5 1c3 0 5.5 1.700 7.500 4.500C18 2.700 20.500 1 23.500 1 27.500 1 31 4 31 8.500 31 14 27 20 16 28z" fill="url(#g${c[0].slice(1)})"/><ellipse cx="9.500" cy="8" rx="3" ry="2" fill="#fff" opacity=".45" transform="rotate(-30 9.500 8)"/></svg>`}
+let live=0;
+function floatHeart(){if(reduce||live>14||document.hidden)return;const c=HC[Math.random()*HC.length|0],e=document.createElement('span');live++;
+ e.className='fh';e.innerHTML=heartSVG(c);e.style.cssText=`left:${Math.random()*96}vw;--z:${16+Math.random()*30}px;--d:${9+Math.random()*8}s;--w:${2+Math.random()*3}s;--g:${c[1]}`;
+ document.body.appendChild(e);setTimeout(()=>{e.remove();live--},18000)}
+setInterval(()=>{if($('#scene').classList.contains('on')||!$('#intro').classList.contains('gone'))floatHeart()},900);
+/* tap/click burst */
+document.addEventListener('pointerdown',e=>{if(reduce||e.target.closest('input,textarea,[contenteditable],#lb,select'))return;
+ for(let i=0;i<7;i++){const h=document.createElement('span'),a=Math.PI*2*i/7+Math.random(),r=50+Math.random()*50;h.className='bh';h.textContent=['❤️','💗','💖','✨'][i%4];
+  h.style.left=e.clientX+'px';h.style.top=e.clientY+'px';h.style.setProperty('--dx',Math.cos(a)*r+'px');h.style.setProperty('--dy',Math.sin(a)*r-30+'px');
+  document.body.appendChild(h);setTimeout(()=>h.remove(),1200)}});
+
+intro();
+</script></body></html>
